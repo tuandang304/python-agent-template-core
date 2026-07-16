@@ -1,36 +1,128 @@
-# Project Template (Mẫu Dự Án)
+<div align="center">
 
-Đây là một template dự án được thiết kế với cấu trúc chuẩn mực, giúp bạn tiết kiệm thời gian và không phải thiết lập từ đầu mỗi khi bắt đầu một dự án Python, Data Science, Machine Learning hay AI Agent mới.
+# 🔬 Agent Research Kit
 
-## 📂 Cấu trúc thư mục
+**Template nghiên cứu chuẩn mực, tái lập được và tích hợp sẵn AI-agent — cho nghiên cứu học thuật & khoa học dữ liệu.**
 
-- **`data/`**: Thư mục dùng để chứa dữ liệu (raw, processed, external,...). Cần đảm bảo dữ liệu lớn hoặc nhạy cảm đã được xử lý trong `.gitignore`.
-- **`docs/`**: Thư mục chứa các tài liệu liên quan đến dự án, báo cáo, file thiết kế hệ thống.
-- **`src/`**: Nơi chứa mã nguồn chính (core logic) của dự án. Gói gọn các module con (ví dụ: data_processing, training, utils) vào thư mục này để code luôn module-hóa, dễ tái sử dụng.
-- **`.agents/` / `.claude/`**: Các thư mục cấu hình dành riêng cho hệ thống AI Agent hoặc các workflow của Claude.
+Clone về, chạy một câu lệnh là bắt đầu nghiên cứu ngay — với cấu trúc dự án gọn
+gàng, khả năng tái lập (reproducibility) tích hợp sẵn, khung bài báo LaTeX, và
+các kỹ năng (skills) của [Claude Code](https://claude.com/claude-code) đã cài đặt sẵn.
 
-## 📄 Các tệp tin quan trọng
+[![CI](https://github.com/tuandang304/agent-research-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/tuandang304/agent-research-kit/actions/workflows/ci.yml)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Code style: ruff](https://img.shields.io/badge/style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
+[![Use this template](https://img.shields.io/badge/use%20this-template-2ea44f?logo=github)](https://github.com/tuandang304/agent-research-kit/generate)
 
-- **`baseline.ipynb`**: File Jupyter Notebook chuẩn bị sẵn cho quá trình EDA (Exploratory Data Analysis) và xây dựng mô hình/giải pháp baseline đầu tiên rất nhanh chóng.
-- **`main.py`**: File chạy chính (entry point) của dự án. Dùng để liên kết các module và khởi chạy chương trình (như pipeline huấn luyện mô hình, chạy ứng dụng,...).
-- **`pyproject.toml`**: File cấu hình dự án, lưu trữ metadata và quản lý các thư viện phụ thuộc (dependencies) thay thế cho `requirements.txt` theo tiêu chuẩn hiện đại.
-- **`.python-version`**: Định nghĩa chuẩn phiên bản Python của dự án (hiện tại `3.14`), giúp các công cụ như `pyenv` hoặc `uv` tự động chọn đúng môi trường.
-- **`CLAUDE.md`**: File chỉ dẫn hành vi (Guidelines) cho AI Agent cài đặt sẵn những nguyên tắc cần tuân thủ về tư duy và coding khi làm việc trong project này.
-- **`skills-lock.json`**: Tập tin khoá kỹ năng, giúp ghi nhớ các công cụ đã cấu hình để dự án hoạt động đồng nhất.
-- **`.gitignore`**: Chứa danh sách các thư mục/file không được push lên Git để giữ repo gọn nhẹ và bảo mật.
+[English](README.md) · [Tiếng Việt](README.vi.md)
 
-## 🚀 Hướng dẫn bắt đầu (Getting Started)
+</div>
 
-1. **Khởi tạo môi trường ảo và cài đặt thư viện:**
-   Dựa vào `pyproject.toml` và `.python-version` để setup môi trường (khuyến khích dùng `uv`, `poetry`, hoặc `venv`).
-   
-2. **Setup dữ liệu ban đầu:**
-   Lưu trữ các tập dataset sử dụng trong quá trình làm việc vào thư mục `data/`.
-   
-3. **Phân tích với Notebook:**
-   Mở `baseline.ipynb` để khám phá dữ liệu, lên ý tưởng phương pháp phân tích và xây dựng baseline.
+---
 
-4. **Module hóa logic:**
-   Đưa các đoạn code đã kiểm chứng ở baseline vào các file `.py` riêng trong thư mục `src/`, và chỉ xuất kết quả ra từ tập lệnh điều khiển `main.py`.
+## Vì sao nên dùng template này?
 
-*Chúc bạn đạt kết quả thật tốt và code ít bug!*
+Phần lớn code nghiên cứu bắt đầu từ một notebook lộn xộn và không bao giờ gọn lại
+được. Template này cho bạn một **bộ khung chuyên nghiệp ngay từ ngày đầu**, giúp
+công việc luôn tái lập được, dễ chia sẻ và dễ chuyển thành bài báo.
+
+- 🧪 **Tái lập mặc định** — một nơi cấu hình duy nhất, một lệnh seed mọi bộ sinh số ngẫu nhiên.
+- 📁 **Cấu trúc hợp lý** — `data/ · notebooks/ · experiments/ · results/ · paper/`.
+- 📦 **Chạy được ngay** — `uv sync` cài đủ mọi thứ; có sẵn một thí nghiệm mẫu chạy thật.
+- 📄 **Sẵn sàng viết báo** — khung LaTeX lấy hình trực tiếp từ `results/`, kèm `CITATION.cff`.
+- 🤖 **Sẵn sàng cho AI-agent** — tích hợp sẵn các skill của Claude Code (API, trích dẫn, thiết kế hệ thống...).
+- ✅ **Đầy đủ công cụ** — test, linting (ruff), CI, và mẫu issue/PR đã cấu hình sẵn.
+
+## Bắt đầu nhanh (Quickstart)
+
+> Cần [**uv**](https://docs.astral.sh/uv/) (khuyến khích) hoặc `pip` thông thường.
+
+```bash
+# 1. Lấy code (hoặc bấm "Use this template" trên GitHub)
+git clone https://github.com/tuandang304/agent-research-kit.git
+cd agent-research-kit
+
+# 2. Cài mọi thứ vào một môi trường độc lập
+uv sync                     # thêm --extra dev để test/lint, --extra notebook cho Jupyter
+
+# 3. Chạy thí nghiệm mẫu — huấn luyện mô hình và lưu hình vào results/figures/
+uv run python main.py example
+```
+
+Thích dùng pip? `python -m venv .venv && source .venv/bin/activate && pip install -e ".[dev,notebook]"`
+
+Vậy là xong — bạn đã có một dự án nghiên cứu hoạt động và tái lập được.
+
+## Cấu trúc dự án
+
+```
+agent-research-kit/
+├── src/ark/                # Package tái sử dụng của bạn (config, seed, logging, data IO)
+├── experiments/            # Mỗi thí nghiệm một script + file config YAML riêng
+├── notebooks/              # Khám phá dữ liệu; 01_exploratory.ipynb đã nối với `ark`
+├── data/                   # raw / processed / external  (nội dung bị git bỏ qua)
+├── results/                # figures / tables            (tự sinh lại, git bỏ qua)
+├── paper/                  # Khung LaTeX + references.bib → dùng results/figures
+├── docs/                   # Ghi chú thiết kế, tài liệu dữ liệu, nhật ký thí nghiệm
+├── tests/                  # Test kiểm tra nhanh bằng pytest
+├── config.yaml             # Cấu hình toàn dự án (seed, log level, khóa của bạn)
+├── main.py                 # Điểm chạy chính:  python main.py [info|example]
+├── .claude/ · .agents/     # Các skill Claude Code cài sẵn (xem bên dưới)
+└── pyproject.toml          # Metadata, dependencies, cấu hình ruff & pytest
+```
+
+## Quy ước tái lập (Reproducibility)
+
+Mọi thí nghiệm đều theo ba quy tắc giống nhau, nên kết quả rất dễ tái lập:
+
+```python
+from ark import config, get_logger, set_seed
+
+set_seed(config.seed)        # 1. Seed Python, NumPy và PyTorch (nếu có cài)
+log = get_logger("my_exp")   # 2. Logging nhất quán, dễ đọc
+# 3. Đọc cấu hình từ config.yaml / experiments/configs/*.yaml — không hard-code
+```
+
+Đường dẫn được phân giải từ thư mục gốc repo qua `ark.config`, nên cùng một đoạn
+code chạy được từ script, notebook hay test — không phải mò `../../`.
+
+## Từ thí nghiệm đến bài báo
+
+Hình lưu vào `results/figures/` được `paper/main.tex` nạp trực tiếp
+(`\graphicspath{{../results/figures/}}`). Biên dịch bài báo bằng `latexmk -pdf main.tex`
+hoặc đưa thư mục lên [Overleaf](https://overleaf.com). GitHub cũng sẽ hiện nút
+**"Cite this repository"** nhờ `CITATION.cff`.
+
+## Các skill Claude Code tích hợp sẵn 🤖
+
+Nếu bạn dùng [Claude Code](https://claude.com/claude-code), các skill này tự nạp
+từ `.claude/skills/` (nhân bản trong `.agents/skills/`):
+
+| Skill | Giúp bạn… |
+| --- | --- |
+| **claude-api** | Lập trình với Claude API trên 8 ngôn ngữ (caching, tools, batches). |
+| **bibtex-citation** | Lấy và định dạng BibTeX chuẩn cho `paper/references.bib`. |
+| **system-design** | Soạn tài liệu kiến trúc và thiết kế cho `docs/`. |
+| **skill-creator / skill-development** | Tự tạo skill riêng cho dự án. |
+| **agent-development / plugin-structure** | Xây dựng agent và plugin tùy biến. |
+| **memory-management** | Trao cho agent bộ nhớ dự án bền vững. |
+
+Không dùng Claude Code? Các thư mục này vô hại — xóa đi cũng không sao.
+
+## Tùy biến cho riêng bạn
+
+Sau khi bấm **Use this template**, hãy biến nó thành của bạn:
+
+1. Đổi tên package `src/ark/` → `src/<tên_dự_án>` và cập nhật `pyproject.toml`.
+2. Điền thông tin tác giả trong `pyproject.toml`, `LICENSE` và `CITATION.cff`.
+3. Thêm dependencies vào `pyproject.toml`, rồi `uv sync`.
+4. Xóa thí nghiệm mẫu và những phần `paper/`/`.claude/` bạn không cần.
+
+## Đóng góp
+
+Rất hoan nghênh issue và PR — xem [CONTRIBUTING.md](CONTRIBUTING.md). Nếu template
+này giúp bạn tiết kiệm thời gian, một ⭐ sẽ giúp người khác tìm thấy nó!
+
+## Giấy phép
+
+[MIT](LICENSE) — miễn phí cho cả mục đích học thuật và thương mại.

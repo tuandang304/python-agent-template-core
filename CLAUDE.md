@@ -63,3 +63,16 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+---
+
+## Project Context (Agent Research Kit)
+
+This repo is a research project template. Key conventions to respect:
+
+- **Package**: reusable code lives in `src/ark/` (`config`, `seed`, `logging`, `data`). Import via `from ark import ...`.
+- **Reproducibility**: start every experiment with `set_seed(config.seed)`. Never hard-code paths — use `ark.config` (resolves from repo root). Never hard-code settings — read `config.yaml` or `experiments/configs/*.yaml`.
+- **Experiments**: one script per experiment in `experiments/`, one YAML config per run. Write outputs to `results/` (figures/tables), which is git-ignored.
+- **Data**: goes under `data/{raw,processed,external}/` (contents git-ignored).
+- **Paper**: `paper/main.tex` pulls figures from `results/figures/`.
+- **Quality gate**: `uv run ruff check .` and `uv run pytest` must pass before committing.

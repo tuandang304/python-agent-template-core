@@ -1,0 +1,9 @@
+# Project-wide settings, read by `ark.config`.
+# Anything not listed here is available via `config.extra`.
+
+seed: 42
+log_level: INFO
+
+# Add your own keys freely, e.g.:
+# dataset: iris
+# test_size: 0.2
